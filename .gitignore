@@ -1,4 +1,7 @@
-#setup
+# setup
 /nix
 .envrc
 shell.nix
+
+# node
+node_modules
