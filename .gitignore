@@ -1,0 +1,4 @@
+#setup
+/nix
+.envrc
+shell.nix
