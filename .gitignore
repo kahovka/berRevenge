@@ -1,0 +1,8 @@
+# nix
+shell.nix
+/nix
+.envrc
+.venv
+
+# editor and stuff 
+.vscode
