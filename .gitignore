@@ -6,3 +6,6 @@ shell.nix
 
 # editor and stuff 
 .vscode
+
+#python
+__pycache__/
