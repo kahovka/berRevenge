@@ -1,25 +1,23 @@
-from src.db.db import connect_db
-from fastapi import FastAPI
-from pydantic import BaseModel
-
-db_connection_string = ""  # replace with vars
+from fastapi import FastAPI, File, UploadFile, Form
+from classification.birds_classification import get_bird
 
 bw_app = FastAPI()
 
 
-class BirdImage(BaseModel):
-    name: str
-    image: str
-    timestamp: int
-
-
 @bw_app.post("/images")
-def post_image(image: BirdImage):
+def post_image(file: UploadFile = File(...), timestamp: str = Form(...)):
 
-    db_client = connect_db(db_connection_string)
-    db_client.raw_images.insert_one(image.dict())
+    visitor = get_bird(file)
+    print(type(file.file))
+    print(file.file)
 
-    return {"message": f"Image {image.name} is saved succesfully"}
+    if visitor is not None:
+        message = f"Image {file.filename}, {timestamp} has a visitor {visitor}!"
+        # and push webhook to FE
+    else:
+        message = "False alarm"
+
+    return {"message": message}
 
 
 # should have get
