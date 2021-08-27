@@ -1,4 +1,4 @@
-from classification.object_detection import detect_extra_objects
+from src.classification.object_detection import detect_extra_objects
 import numpy as np
 
 

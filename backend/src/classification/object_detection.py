@@ -35,7 +35,6 @@ def detect_extra_objects(obj_img: npt.ArrayLike, ref_img: npt.ArrayLike):
         min_obj_size = 100  # px
         for c in cnts:
             (x, y, w, h) = cv2.boundingRect(c)
-            print((x, y, w, h))
             if w > min_obj_size and h > min_obj_size:
                 # crop images here instead and save them for processing
                 result_imgs.append(
