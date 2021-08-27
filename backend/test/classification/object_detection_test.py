@@ -5,7 +5,7 @@ import os
 
 def test_detect_extra_objects():
 
-    print(os.getcwd())
+    print([f for f in os.listdir(".") if os.path.isfile(f)])
     with open("./test/test_images/IMG_4123.JPG") as f:
         ref_image = np.fromfile(f, dtype=np.uint8)
     with open("./test/test_images/IMG_4123c.JPG") as f:
