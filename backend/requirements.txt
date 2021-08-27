@@ -5,3 +5,4 @@ boto3
 opencv-python
 scikit-image
 imutils
+dataclasses
